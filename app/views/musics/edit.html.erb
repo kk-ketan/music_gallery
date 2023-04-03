@@ -1,0 +1,9 @@
+
+<% if @message.present? %>
+  <%= @message %>
+<% else %>
+<div class="bg-white">
+<h2 class="mt-3 text-center">Edit song</h2>
+<%= render "upload", music: @music%>
+</div>
+<% end %>

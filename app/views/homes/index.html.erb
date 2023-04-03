@@ -1,0 +1,49 @@
+
+<div class="d-flex justify-content-center">
+
+     <%= search_form_for @ketan, url: root_path do |f| %>
+
+     <%= f.text_field :tags_alltags_cont, class: "form-control", placeholder: "Search" %><br>
+
+     <div class="d-flex justify-content-center"><%= f.submit class: "btn btn-primary" %></div>
+
+     <% end %>
+
+   </div>
+
+<div class="container mt-5 bg-white">
+<div class="col-12 row">
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+<% @homes.each do |home| %>
+
+    <div class="col ">
+    <div class="card h-100">
+    <%if home.cover.attached?%>
+    <%= image_tag url_for(home.cover) , style: "height:20rem; width:100%;" %>
+    <%end%>
+      <div class="card-body text-center text-color:dark">
+        <h5 class="card-title"><%= link_to home.audioname, home , style: "text-decoration:none;color:black"%></h5>
+        <h6 class="card-text"><%= link_to home.description, home , style: "text-decoration:none;color:black"%></h6>
+      </div>
+    </div>
+  </div>
+
+
+
+<% end %>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
