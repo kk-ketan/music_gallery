@@ -1,9 +1,9 @@
 
 <div class="d-flex justify-content-center">
 
-     <%= search_form_for @ketan, url: root_path do |f| %>
+     <%= search_form_for @q, url: root_path do |f| %>
 
-     <%= f.text_field :tags_alltags_cont, class: "form-control", placeholder: "Search" %><br>
+     <%= f.search_field :tags_alltags_cont, class: "form-control", placeholder: "Search" %><br>
 
      <div class="d-flex justify-content-center"><%= f.submit class: "btn btn-primary" %></div>
 
