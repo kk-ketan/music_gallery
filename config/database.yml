@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: music_gallery_production
-  username: music_gallery
-  password: <%= ENV["MUSIC_GALLERY_DATABASE_PASSWORD"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
