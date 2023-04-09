@@ -1,0 +1,9 @@
+.bg_img {
+    background-image: url("back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.round img {
+    border-radius: 10rem;
+}

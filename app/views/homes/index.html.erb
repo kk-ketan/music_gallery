@@ -1,43 +1,40 @@
+<div class="container-fluid bg_img   ">
+  <div class="container    ">
+    <div class="d-flex justify-content-center p-5">
 
-<div class="d-flex justify-content-center">
+      <%= search_form_for @q, url: root_path do |f| %>
+      <div class="d-flex mx-auto">
+        <%= f.search_field :tags_alltags_cont, class: "form-control d-flex", placeholder: "Search" %>
 
-     <%= search_form_for @q, url: root_path do |f| %>
+        <%= f.submit class: "btn btn-primary mx-2" %></div>
 
-     <%= f.search_field :tags_alltags_cont, class: "form-control", placeholder: "Search" %><br>
+      <% end %>
 
-     <div class="d-flex justify-content-center"><%= f.submit class: "btn btn-primary" %></div>
+    </div>
 
-     <% end %>
+    <div class="col-12 row">
 
-   </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
 
-<div class="container mt-5 bg-white">
-<div class="col-12 row">
+        <% @homes.each do |home| %>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col ">
+          <div class="card h-100 rounded border p-2 image">
+            <%if home.cover.attached?%>
+            <%= image_tag url_for(home.cover),style:"height:15rem"%>
+            <%end%>
+            <div class="card-body text-center text-color:dark">
+              <h5 class="card-title"><%= link_to home.audioname, home , style: "text-decoration:none;color:black"%></h5>
+              <%= link_to "play", home ,class:"btn btn-primary mt-2" %>
 
-<% @homes.each do |home| %>
+            </div>
+          </div>
+        </div>
 
-    <div class="col ">
-    <div class="card h-100">
-    <%if home.cover.attached?%>
-    <%= image_tag url_for(home.cover) , style: "height:20rem; width:100%;" %>
-    <%end%>
-      <div class="card-body text-center text-color:dark">
-        <h5 class="card-title"><%= link_to home.audioname, home , style: "text-decoration:none;color:black"%></h5>
-        <h6 class="card-text"><%= link_to home.description, home , style: "text-decoration:none;color:black"%></h6>
+        <% end %>
       </div>
     </div>
   </div>
-
-
-
-<% end %>
-</div>
-</div>
-
-
-
 
 
 

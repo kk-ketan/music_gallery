@@ -1,35 +1,22 @@
-
-
-
-
-
-
-
-        <div class="container  bg-white ">
-       
-     <div class="col-12 row ">
- <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
-
-  <% @musics.each do |music| %>
-
-    
-    <div class="col ">
-      <div class="card h-100 ">
-      <%if music.cover.attached?%>
-      <%= image_tag url_for(music.cover) , style: "height:20rem; width:100%;" %>
-      <%end%>
-        <div class="card-body text-center text-color:dark">
-          <h5 class="card-title"><%= link_to music.audioname, music , style: "text-decoration:none;color:black" %></h5>
-          <h6 class="card-text"><%= link_to music.description, music , style: "text-decoration:none;color:black" %></h6>
+<div class="container-fluid bg_img">
+  <div class="container">
+    <div class="col-12 row ">
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 p-2">
+        <% @musics.each do |music| %>
+        <div class="col">
+          <div class="card h-100 p-2">
+            <%if music.cover.attached?%>
+            <%= image_tag url_for(music.cover) ,style: "height:15rem" %>
+            <%end%>
+            <div class="card-body text-center text-color:dark">
+              <h5 class="card-title"><%= link_to music.audioname, music , style: "text-decoration:none;color:black" %>
+              </h5>
+              <%= link_to "play", music ,class:"btn btn-primary mt-2" %>
+            </div>
+          </div>
         </div>
+        <% end %>
       </div>
-    </div>
-
-
-
-
-
-    
-  <% end %>
- </div>
-  
+    </div>  
+  </div>
+</div>

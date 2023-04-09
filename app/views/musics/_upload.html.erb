@@ -1,46 +1,37 @@
-
-
-
-
 <div class="container text-center text-black ">
-<div class="border border-dark ">
-<div class="p-3  text-dark ">
-  <%= form_with model: music do |form| %>
-    <%= form.label :audioname %><br>
-    <%= form.text_field :audioname %><br><br>
-    <%= form.label :description  %> <br>
-    <%= form.text_field :description %><br><br>
-    <%= form.label :audiofile %> <br>
-    <%= form.file_field :audios, multiple: true , accept: 'audio/*'%> <br><br><br>
-    <%= form.label :photofile %> <br>
-    <%= form.file_field :cover ,  accept: 'image/*'%> <br><br><br>
+  <div class="border border-dark ">
+    <div class="p-3  text-dark ">
+      <%= form_with model: music do |form| %>
+      <%= form.label :audioname %><br>
+      <%= form.text_field :audioname %><br><br>
+      <%= form.label :description  %> <br>
+      <%= form.text_field :description %><br><br>
+      <%= form.label :audiofile %> <br>
+      <%= form.file_field :audios, multiple: true , accept: 'audio/*'%> <br><br><br>
+      <%= form.label :photofile %> <br>
+      <%= form.file_field :cover ,  accept: 'image/*'%> <br><br><br>
 
-    <div>
+      <div>
 
-    <%= form.label :Tag %><br>
+        <%= form.label :Tag %><br>
 
-    <%= form.text_field :all_tags, :autocomplete => "off", placeholder: "Tag sepatated with comma", :class => " inputfield form-control text-center w-50 mx-auto" %><br>
+        <%= form.text_field :all_tags, :autocomplete => "off", placeholder: "Tag sepatated with comma", :class => " inputfield form-control text-center w-50 mx-auto" %><br>
 
+        <% music.errors.full_messages_for(:all_tags).each do |message| %>
 
+        <div class="text-danger"><%= message %></div>
 
+        <% end %>
 
-    <% music.errors.full_messages_for(:all_tags).each do |message| %>
+      </div>
 
-    <div class="text-danger"><%= message %></div>
+      <%= form.label :tick_if_you_want_your_music_will_be_published%><br><br>
 
-    <% end %>
+      <%= form.check_box :published %>
+      <%= "Published"%> <br> <br>
+      <%= form.submit "upload" %><br>
 
-  </div>
-
-
-    <%= form.label :tick_if_you_want_your_music_will_be_published%><br><br>
-
-    <%= form.check_box :published %>
-     <%= "Published"%> <br> <br>
-    <%= form.submit "upload" %><br>
-
-    
-  <% end %>
-  </div>
+      <% end %>
+    </div>
   </div>
 </div>

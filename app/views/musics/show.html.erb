@@ -1,47 +1,50 @@
+<div class="bg-info container-fluid text-center p-5 bg_img">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col image">
 
-<div class="bg-white container text-center mt-5">
-<div class="row align-items-center">
-<div class="col-sm-6  image">
- 
-<div class="mx-auto">
-<%if @music.cover.attached?%>
-<%= image_tag url_for(@music.cover) , style: "height:20rem; width:50%;" %>
-<%end%>
-</div>
+        <div class="mx-auto round">
+          <%if @music.cover.attached?%>
+          <%= image_tag url_for(@music.cover) , style: "height:20rem" %>
+          <%end%>
+        </div>
+        <div class="mt-3  ">
+          <h3><%=  @music.audioname  %>
+          </h3>
+          <h5><%=  @music.description %>
+          </h5>
+        </div>
 
-</div>
-<div class="col-sm-6">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
         <% @music.audios.each do |audio| %>
 
-            <div class="border border-dark p-3 w-50 mx-auto mt-3  bg-dark">
-<div class="mt-3">
+        <div class="border border-dark p-3 w-50 mx-auto mt-3  bg-dark rounded d-flex align-items-center text-center">
+          <div class="mt-3 mx-auto">
             <%= audio_tag(audio.url, autoplay: false, controls: true) %>
 
-            </div>
-            
-            <div class="mt-2">
+          </div>
 
-        
-         
+          <div class="mt-2 mx-auto">
 
-            <%= link_to "Delete", purge_audio_music_path(@music, audio_id: audio.id), data: {
+            <%= link_to "Delete", purge_audio_music_path(@music, audio_id: audio.id),data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
-              } %>
-           </div>
-            </div>
-
-
-          <% end %><br><br>
+              },class:"btn btn-secondary" %>
           </div>
-  </div>
-          
+        </div>
 
-          <i><b><%= link_to "edit", edit_music_path(@music),style:"text-decoration:none;color:black;background:silver   ;padding:7px;border-radius:3rem"%></b></i> <br><br>
-         
-          
-          
-   <i><b> <%= link_to "Destroy", music_path(@music), style:"text-decoration:none;color:black;background:silver;padding:7px;border-radius:3rem" ,data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></b></i>
-
+        <% end %><br><br>
+      </div>
     </div>
-  
+
+    <i><b><%= link_to "Edit", edit_music_path(@music),class:"btn btn-secondary" %></b></i>
+    <br><br>
+
+    <i><b>
+        <%= link_to "Destroy", music_path(@music), class:"btn btn-secondary"  ,data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></b></i>
+
+  </div>
+</div>
